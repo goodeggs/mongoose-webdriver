@@ -21,7 +21,7 @@ mongooseWebdriver = require('mongoose-webdriver');
 
 - **Does it work with [Protractor](http://angular.github.io/protractor/)?**
   Yes! Mongoose-webdriver will work with Protractor. It will even wait for
-  Angular to finish all it's background http requests before it runs your
+  Angular to finish all its background http requests before it runs your
   Mongoose queries.
 
 ## Contributing
