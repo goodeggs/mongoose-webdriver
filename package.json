@@ -1,0 +1,30 @@
+{
+  "name": "mongoose-webdriver",
+  "version": "0.0.0",
+  "description": "Make mongoose queries in the selenium-webdriver control flow.",
+  "author": "Good Eggs <open-source@goodeggs.com>",
+  "contributors": [
+    "Max Edmands <me@maxedmands.com>"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/goodeggs/mongoose-webdriver.git"
+  },
+  "homepage": "https://github.com/goodeggs/mongoose-webdriver",
+  "bugs": "https://github.com/goodeggs/mongoose-webdriver/issues",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "coffee-script": ">=1.7.x","mocha": "~1.x.x",
+    "chai": "^1.9.1"
+  },
+  "scripts": {
+    "compile": "coffee --bare --compile --output lib/ src/",
+    "build": "npm run compile",
+    "test": "mocha",
+  
+    "pretest": "npm run build"
+  }
+}
