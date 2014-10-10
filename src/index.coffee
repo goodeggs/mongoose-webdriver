@@ -1,7 +1,7 @@
 mongoose = require 'mongoose'
 
 addToControlFlow = (webdriver, func) ->
-  webdriver.waitForAngular()
+  webdriver.waitForAngular?()
   webdriver.controlFlow().execute func
 
 mongoose.Query::schedule = (webdriver) ->
