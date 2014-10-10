@@ -1,4 +1,3 @@
-
 mongooseWebdriver = require '..'
 {expect} = require 'chai'
 
