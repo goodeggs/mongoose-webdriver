@@ -5,7 +5,7 @@ version](http://img.shields.io/npm/v/mongoose-webdriver.svg?style=flat)](https:/
 [![Build Status](http://img.shields.io/travis/goodeggs/mongoose-webdriver/master.svg?style=flat)](https://travis-ci.org/goodeggs/mongoose-webdriver)
 [![MIT License](http://img.shields.io/badge/license-mit-blue.svg?style=flat)](https://github.com/goodeggs/mongoose-webdriver/blob/master/LICENSE.md)
 
-Make mongoose queries in the selenium-webdriver control flow.
+Make [mongoose](http://mongoosejs.com/) queries in the [selenium-webdriver](http://docs.seleniumhq.org/projects/webdriver/) control flow.
 
 ## Usage
 
