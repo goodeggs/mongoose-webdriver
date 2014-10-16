@@ -14,7 +14,21 @@ npm install mongoose-webdriver
 ```
 
 ```javascript
-mongooseWebdriver = require('mongoose-webdriver');
+var mongoose = require('mongoose');
+var wd = require('selenium-webdriver');
+var driver = new wd.Builder().build();
+
+// Setup
+var bootstrap = require('mongoose-webdriver');
+bootstrap(mongoose, driver);
+
+// Let's verify that clicking a button on a webpage increases a counter in the database:
+Model.scheduleCreate({slug: 'example-url', counter: 0});
+driver.get('http://localhost:8000/example-url');
+driver.findElement(webdriver.By.css('button.increment')).click();
+MongooseModel.find({slug: 'example-url'}).schedule().then(function(document) {
+  assert.equal(document.counter, 1);
+});
 ```
 
 ## FAQs
