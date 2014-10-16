@@ -7,5 +7,5 @@ module.exports = (mongoose, globalWebdriver) ->
   mongoose.Query::schedule = (webdriver = globalWebdriver) ->
     addToControlFlow webdriver, @exec.bind @
 
-  mongoose.Model::scheduleCreate = (webdriver = globalWebdriver) ->
-    addToControlFlow webdriver, @create.bind @
+  mongoose.Model.scheduleCreate = (doc, webdriver = globalWebdriver) ->
+    addToControlFlow webdriver, @create.bind @, doc

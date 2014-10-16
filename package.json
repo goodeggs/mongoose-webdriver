@@ -19,9 +19,12 @@
     "selenium-webdriver": "^2.x.x"
   },
   "devDependencies": {
-    "coffee-script": ">=1.7.x",
     "chai": "^1.9.1",
-    "mocha": "~1.x.x"
+    "coffee-script": ">=1.7.x",
+    "hapi": "^7.0.0",
+    "mocha": "~1.x.x",
+    "mongoose": "^3.8.17",
+    "selenium-webdriver": "^2.43.5"
   },
   "scripts": {
     "compile": "coffee --bare --compile --output lib/ src/",
