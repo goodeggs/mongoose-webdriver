@@ -42,6 +42,8 @@ MongooseModel.find({slug: 'example-url'}).schedule().then(function(document) {
 
 Please follow our [Code of Conduct](https://github.com/goodeggs/mongoose-webdriver/blob/master/CODE_OF_CONDUCT.md) when contributing to this project.
 
+You need to have mongodb running on your machine.
+
 ```
 $ git clone https://github.com/goodeggs/mongoose-webdriver && cd mongoose-webdriver
 $ npm install
