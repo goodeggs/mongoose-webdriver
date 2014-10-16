@@ -42,7 +42,7 @@ before (done) ->
 # start webdriver and hook up mongoose-webdriver
 before ->
   @driver = (new wd.Builder())
-    .withCapabilities(wd.Capabilities.chrome())
+    .withCapabilities(wd.Capabilities.phantomjs())
     .build()
 
   bootstrap(mongoose, @driver)
