@@ -62,5 +62,11 @@ describe 'mongoose-webdriver', ->
 
     @driver.findElement(wd.By.css('input.increment')).click()
     @driver.wait => @driver.getCurrentUrl().then((url) -> url is "http://localhost:#{PORT}/incrementers/example-route/bump")
-    Incrementer.findOne({slug: 'example-route'}).schedule().then (incrementer) ->
+    Incrementer.findOne({slug: 'example-route'}).schedule().then (incrementer) =>
       expect(incrementer).to.have.property 'counter', 2
+      incrementer.counter = 1
+      incrementer.scheduleSave().then (incrementerSaved) ->
+        expect(incrementerSaved).to.have.property 'counter', 1
+
+      Incrementer.findOne({slug: 'example-route'}).schedule().then (incrementer) ->
+        expect(incrementer).to.have.property 'counter', 1
