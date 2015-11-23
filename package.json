@@ -15,7 +15,7 @@
   "homepage": "https://github.com/goodeggs/mongoose-webdriver",
   "bugs": "https://github.com/goodeggs/mongoose-webdriver/issues",
   "peerDependencies": {
-    "mongoose": "^3.x.x",
+    "mongoose": ">=3.8.0",
     "selenium-webdriver": "^2.x.x"
   },
   "devDependencies": {
@@ -23,7 +23,7 @@
     "coffee-script": ">=1.7.x",
     "hapi": "^7.0.0",
     "mocha": "~1.x.x",
-    "mongoose": "^3.8.17",
+    "mongoose": "^4.2.7",
     "selenium-webdriver": "^2.43.5"
   },
   "scripts": {

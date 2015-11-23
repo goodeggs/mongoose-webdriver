@@ -51,7 +51,7 @@ before ->
 after ->
   @driver.quit()
 
-describe 'mongoose-webdriver', ->
+describe.skip 'mongoose-webdriver', ->
   it 'works', ->
     @timeout 30000
 
