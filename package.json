@@ -25,7 +25,7 @@
     "hapi": "^7.0.0",
     "mocha": "~1.x.x",
     "mongoose": "^4.2.7",
-    "selenium-webdriver": "^2.43.5"
+    "selenium-webdriver": "~2.42.1"
   },
   "scripts": {
     "compile": "coffee --bare --compile --output lib/ src/",
