@@ -1,5 +1,6 @@
 bootstrap = require '..'
-{expect} = require 'chai'
+{expect} = chai = require 'chai'
+chai.use require('chai-as-promised')
 
 mongoose = require 'mongoose'
 wd = require 'selenium-webdriver'
@@ -51,10 +52,13 @@ before ->
 after ->
   @driver.quit()
 
-describe.skip 'mongoose-webdriver', ->
-  it 'works', ->
-    @timeout 30000
+describe 'mongoose-webdriver', ->
+  @timeout 30000
 
+  beforeEach 'reset db', ->
+    Incrementer.remove()
+
+  it 'works', ->
     @driver.get "http://localhost:#{PORT}/incrementers/example-route"
 
     Incrementer.remove().schedule()
@@ -70,3 +74,20 @@ describe.skip 'mongoose-webdriver', ->
 
       Incrementer.findOne({slug: 'example-route'}).schedule().then (incrementer) ->
         expect(incrementer).to.have.property 'counter', 1
+
+  describe '.scheduleSave', ->
+    beforeEach 'create existing model', ->
+      Incrementer.create({slug: 'example-route', counter: 0})
+      .then (@incrementer) =>
+
+    it 'handles success', ->
+      @driver.get "http://localhost:#{PORT}/incrementers/example-route"
+      @incrementer.counter = 1
+      @incrementer.scheduleSave().then (incrementerSaved) ->
+        expect(incrementerSaved).to.have.property 'counter', 1
+
+    it 'handles failure', ->
+      @driver.get "http://localhost:#{PORT}/incrementers/example-route"
+      @incrementer.counter = 'should be a number'
+      scheduleSavePromise = @incrementer.scheduleSave()
+      expect(scheduleSavePromise).to.eventually.be.rejectedWith /validation/
