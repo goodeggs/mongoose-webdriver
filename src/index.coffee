@@ -11,12 +11,4 @@ module.exports = (mongoose, globalWebdriver) ->
     addToControlFlow webdriver, @create.bind @, doc
 
   mongoose.Model.prototype.scheduleSave = (webdriver = globalWebdriver) ->
-    Promise = require('mongoose/node_modules/mpromise')
-
-    savePromise = ->
-      promise = new Promise
-      @save (err, res) ->
-        promise.resolve err, res
-      promise
-
-    addToControlFlow webdriver, savePromise.bind @
+    addToControlFlow webdriver, @save.bind(@)
